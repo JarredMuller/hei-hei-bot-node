@@ -1,0 +1,13 @@
+app = "hei-hei-bot-node"     # change to your Fly app name
+primary_region = "syd"
+
+[env]
+  NODE_ENV = "production"
+
+[processes]
+  app = "node src/index.js"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory = "256mb"
