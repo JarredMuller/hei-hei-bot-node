@@ -1,13 +1,23 @@
-app = "hei-hei-bot-node"     # change to your Fly app name
-primary_region = "syd"
+# fly.toml app configuration file generated for hei-hei-bot-node on 2025-09-18T03:01:49Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-[env]
-  NODE_ENV = "production"
+app = 'hei-hei-bot-node'
+primary_region = 'syd'
 
-[processes]
-  app = "node src/index.js"
+[build]
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
 
 [[vm]]
-  cpu_kind = "shared"
+  memory = '256mb'
+  cpu_kind = 'shared'
   cpus = 1
-  memory = "256mb"
+  memory_mb = 256
